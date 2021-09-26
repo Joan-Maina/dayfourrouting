@@ -17,3 +17,9 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
+form {
+  align-items: center;
+  display: flexbox;
+  position: fixed;
+  margin: 70px 520px;
+}

@@ -1,50 +1,28 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Home from "./home";
-import About from './aboutUs';
-import Shop from './shop';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Nav from './components/Nav';
+import Home from './components/Home';
+import About from './components/AboutUs';
+import Shop from './components/Shop';
 
-export default function App() {
-  const navStyle={
-    color:'white'
-};
+function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul className="nav-links">
-            <li> 
-              <Link to="/" style={navStyle}>Home</Link>
-            </li>
-            <li>
-              <Link to="/about"style={navStyle}>About</Link>
-            </li>
-            <li>
-              <Link to="/shop" style={navStyle}>Shop</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <Nav />
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route exact path="/" component={Home}/>
+              
+          <Route path="/about" component={About}/>
+            
+          <Route path="/shop" component={Shop}/>
+            
         </Switch>
       </div>
     </Router>
   );
 }
 
+export default App;
